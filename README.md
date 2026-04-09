@@ -1,4 +1,4 @@
-![Tests](https://github.com/TkTech/mutf8/workflows/Tests/badge.svg?branch=master)
+![Tests](https://github.com/Amulet-Team/mutf8/workflows/Tests/badge.svg?branch=master)
 
 # mutf-8
 
@@ -19,7 +19,7 @@ class files.
 Install the package from PyPi:
 
 ```
-pip install mutf8
+pip install amulet-mutf8
 ```
 
 Binary wheels are available for the following:

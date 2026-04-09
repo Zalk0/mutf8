@@ -10,7 +10,7 @@ with open(os.path.join(root, 'README.md'), 'rb') as readme:
 
 
 setup(
-    name='mutf8',
+    name='amulet-mutf8',
     packages=find_packages(),
     version='1.0.6',
     description='Fast MUTF-8 encoder & decoder',
@@ -18,7 +18,7 @@ setup(
     long_description_content_type='text/markdown',
     author='Tyler Kennedy',
     author_email='tk@tkte.ch',
-    url='http://github.com/TkTech/mutf8',
+    url='http://github.com/Amulet-Team/mutf8',
     keywords=['mutf-8', 'cesu-8', 'jvm'],
     classifiers=[
         'Programming Language :: Python :: 3',
