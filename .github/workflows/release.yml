@@ -15,12 +15,12 @@ jobs:
 
     steps:
     - name: Clone
-      uses: actions/checkout@v7
+      uses: actions/checkout@v7.0.0
       with:
         persist-credentials: false
 
     - name: Set up cibuildwheel and build wheels
-      uses: pypa/cibuildwheel@v4
+      uses: pypa/cibuildwheel@v4.1.0
 
     - name: Publish
       env:
