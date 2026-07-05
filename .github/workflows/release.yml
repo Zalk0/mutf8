@@ -9,30 +9,25 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        python-version: ['3.11', '3.12', '3.13', '3.14']
         cfg:
-          - { os: windows-2025, python-version: '3.11', architecture: x64 }
-          - { os: windows-2025, python-version: '3.12', architecture: x64 }
-          - { os: windows-2025, python-version: '3.13', architecture: x64 }
-          - { os: windows-2025, python-version: '3.14', architecture: x64 }
-          - { os: windows-11-arm, python-version: '3.11', architecture: arm64 }
-          - { os: windows-11-arm, python-version: '3.12', architecture: arm64 }
-          - { os: windows-11-arm, python-version: '3.13', architecture: arm64 }
-          - { os: windows-11-arm, python-version: '3.14', architecture: arm64 }
-          - { os: macos-15, python-version: '3.11', architecture: arm64 }
-          - { os: macos-15, python-version: '3.12', architecture: arm64 }
-          - { os: macos-15, python-version: '3.13', architecture: arm64 }
-          - { os: macos-15, python-version: '3.14', architecture: arm64 }
+          - {os: windows-2025, architecture: x64}
+          - {os: windows-11-arm, architecture: arm64}
+          - {os: macos-26-intel, architecture: x64}
+          - {os: macos-26, architecture: arm64}
+          - {os: ubuntu-26.04, architecture: x64}
+          - {os: ubuntu-26.04-arm, architecture: arm64}
 
     runs-on: ${{ matrix.cfg.os }}
 
     steps:
     - name: Clone
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
-        python-version: ${{ matrix.cfg.python-version }}
+        python-version: ${{ matrix.python-version }}
         architecture: ${{ matrix.cfg.architecture }}
 
     - name: Install dependencies
@@ -45,7 +40,7 @@ jobs:
 
     - name: Publish
       env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.AMULET_MUTF8_PYPI_PASSWORD }}
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_TEST_TOKEN }}
       run: |
         twine upload dist/* --skip-existing
