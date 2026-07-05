@@ -24,11 +24,15 @@ pip install amulet-mutf8
 
 Binary wheels are available for the following:
 
-|                  | py3.6 | py3.7 | py3.8 | py3.9 |
-| ---------------- | ----- | ----- | ----- | ----- |
-| OS X (x86_64)    | y     | y     | y     | y     |
-| Windows (x86_64) | y     | y     | y     | y     |
-| Linux (x86_64)   | y     | y     | y     | y     |
+|                  | py3.9 | py3.10 | py3.11 | py3.12 | py3.13 | py3.14 | py3.14t |
+| ---------------- | ----- | ------ | ------ | ------ | ------ | ------ | ------- |
+| OS X (x86_64)    | y     | y      | y      | y      | y      | y      | y       |
+| OS X (ARM64)     | y     | y      | y      | y      | y      | y      | y       |
+| Windows (x86_64) | y     | y      | y      | y      | y      | y      | y       |
+| Windows (x86)    | y     | y      | y      | y      | y      | y      | y       |
+| Windows (ARM64)  | y     | y      | y      | y      | y      | y      | y       |
+| Linux (x86_64)   | y     | y      | y      | y      | y      | y      | y       |
+| Linux (ARM64)    | y     | y      | y      | y      | y      | y      | y       |
 
 If binary wheels are not available, it will attempt to build the C extension
 from source with any C99 compiler. If it could not build, it will fall back
