@@ -19,6 +19,15 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: Set up Python
+      uses: actions/setup-python@v6.3.0
+      with:
+        python-version: 3.x
+
+    - name: Install twine
+      run: |
+        pip install twine
+
     - name: Set up cibuildwheel and build wheels
       uses: pypa/cibuildwheel@v4.1.0
 
@@ -27,4 +36,4 @@ jobs:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.PYPI_TEST_TOKEN }}
       run: |
-        twine upload dist/* --skip-existing --repository testpypi
+        twine upload wheelhouse/* --skip-existing --repository testpypi
